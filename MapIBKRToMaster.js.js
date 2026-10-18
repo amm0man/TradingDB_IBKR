@@ -119,8 +119,6 @@ function mapIBKRImportToMaster() {
       masterRow[m.account] = "LT";
       masterRow[m.broker] = "IBKR";
       masterRow[m.ticker] = String(symbol || "").toUpperCase();
-      masterRow[m.transferType] = "DIVIDEND";
-      masterRow[m.cashFlow] = "IN";
       masterRow[m.totalCost] = row[idx.tradeDate]; // the real cash amount
       masterRow[m.notes] = String(desc || notes || "").toUpperCase();
       masterRow[m.strategyType] = "LONG STOCK";
@@ -184,9 +182,7 @@ function mapIBKRImportToMaster() {
       if (isDrip) {
         masterRow[mCol("Corporate Actions")] = "DRIP";
       }
-       if (isDrip) {
-        masterRow[m.corpActions] = "DRIP";
-      }
+       
 
     } else if (isCashReceipt) {
       // existing cash-receipt block (unchanged)
